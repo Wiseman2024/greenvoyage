@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Emissions Calculator</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+
+    <form id="carbonForm">
+        <label for="travelMode">Travel Mode:</label>
+        <select id="travelMode" name="travelMode">
+            <option value="plane">Plane</option>
+            <option value="train">Train</option>
+            <option value="vehicle">Vehicle</option>
+            <option value="motorbike">Motorbike</option>
+            <option value="boat">Boat</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <div id="transportFields">
+            <!-- Fields related to the mode of transport -->
+            <label for="distanceTraveled">Distance Traveled (km):</label>
+            <input type="number" id="distanceTraveled" name="distanceTraveled" placeholder="Enter distance">
+
+            <!-- Add more fields based on the selected transport mode -->
+        </div>
+
+        <label for="stayDuration">Hotel Stay Duration (hours):</label>
+        <input type="number" id="stayDuration" name="stayDuration" placeholder="Enter stay duration">
+
+        <label for="appliances">Appliances Used (comma-separated):</label>
+        <input type="text" id="appliances" name="appliances" placeholder="Enter appliances">
+
+        <button type="button" onclick="calculateEmissions()">Calculate Emissions</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
