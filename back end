@@ -1,0 +1,81 @@
+function calculateEmissions() {
+    const travelMode = document.getElementById('travelMode').value;
+    const distanceTraveled = parseFloat(document.getElementById('distanceTraveled').value) || 0;
+    const stayDuration = parseFloat(document.getElementById('stayDuration').value) || 0;
+    const appliances = document.getElementById('appliances').value.split(",");
+
+    let emissions = 0;
+
+    // Calculate emissions based on the selected mode of transport
+    switch (travelMode) {
+        case 'plane':
+            emissions += calculatePlaneEmissions(distanceTraveled);
+            break;
+        case 'train':
+            emissions += calculateTrainEmissions(distanceTraveled);
+            break;
+        case 'vehicle':
+            emissions += calculateVehicleEmissions(distanceTraveled);
+            break;
+        case 'motorbike':
+            emissions += calculateMotorbikeEmissions(distanceTraveled);
+            break;
+        case 'boat':
+            emissions += calculateBoatEmissions(distanceTraveled);
+            break;
+        // Add more cases as needed
+        default:
+            console.error('Invalid travel mode.');
+            return;
+    }
+
+    // Calculate emissions for hotel stay
+    emissions += calculateHotelEmissions(stayDuration, appliances);
+
+    // Display the result
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `Estimated carbon emissions: ${emissions.toFixed(2)} kg CO2`;
+}
+
+function calculatePlaneEmissions(distance) {
+    // Add logic to calculate plane emissions based on distance
+    // For simplicity, let's use a placeholder value
+    return distance * 0.18;
+}
+
+function calculateTrainEmissions(distance) {
+    // Add logic to calculate train emissions based on distance
+    // For simplicity, let's use a placeholder value
+    return distance * 0.05;
+}
+
+function calculateVehicleEmissions(distance) {
+    // Add logic to calculate vehicle emissions based on distance
+    // For simplicity, let's use a placeholder value
+    return distance * 0.2;
+}
+
+function calculateMotorbikeEmissions(distance) {
+    // Add logic to calculate motorbike emissions based on distance
+    // For simplicity, let's use a placeholder value
+    return distance * 0.1;
+}
+
+function calculateBoatEmissions(distance) {
+    // Add logic to calculate boat emissions based on distance
+    // For simplicity, let's use a placeholder value
+    return distance * 0.15;
+}
+
+function calculateHotelEmissions(duration, appliances) {
+    // Add logic to calculate hotel emissions based on duration and appliances used
+    // For simplicity, let's use placeholder values
+    let emissions = duration * 0.01;  // Hotel stay emission factor
+
+    // Add emissions for each appliance
+    for (const appliance of appliances) {
+        emissions += duration * 0.005;  // Appliance-specific emission factor (placeholder value)
+    }
+
+    return emissions;
+}
